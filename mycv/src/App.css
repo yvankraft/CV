@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Styles pour votre CV - à personnaliser */
