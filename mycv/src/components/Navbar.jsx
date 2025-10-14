@@ -12,29 +12,38 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <div className=" top-0 fixed h-[95vh] z-10 flex flex-col bg-slate-50 w-100 p-10 shadow-2xl rounded-3xl m-5 text-lg md:text-xl lg:text-2xl font-bold font-stretch-semi-condensed ">
-      <div className="flex justify-center items-center mb-4">
-        <div className="sm:w-40 sm:h-40 md:h-60 md:w-60 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-slate-200 shadow-lg">
+    <div
+      className="
+  fixed bottom-0 left-0 right-0 h-20 z-10 flex flex-row justify-around items-center
+  md:top-0 md:left-0 md:right-auto  md:h-[95%] md:w-100 md:flex-col md:justify-evently
+  bg-slate-50 p-2 md:p-10 shadow-2xl rounded-3xl m-5 text-lg md:text-xl lg:text-2xl font-bold font-stretch-semi-condensed 
+"
+    >
+      <div className="flex items-center mb-4 md:mb-1 h-full justify-evenly">
+        <div className="h-40 w-40 sm:w-40 sm:h-40 md:h-48 md:w-48 lg:w-60 lg:h-60 rounded-full overflow-hidden border-4  hidden md:flex border-slate-200 shadow-lg">
           <img
             src={profileImage}
             alt="Profile Avatar"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover "
           />
         </div>
       </div>
-      <h1 className="text-center text-slate-500 mb-6">
+      <h1 className="text-center text-slate-500 hidden md:block">
         Yvan Wildis Ngone Tchinda
       </h1>
-      <nav className="flex flex-col text-slate-500 gap-8 mt-8 mb-6">
+      <nav className=" text-slate-500 gap-8 mt-8 mb-10 flex flex-row md:flex-col md:mb-0  ">
         <NavLink
           to="/home"
           className={({ isActive }) =>
             isActive
-              ? "text-slate-800 border-b-2 border-slate-800 w-fit"
-              : "hover:text-slate-800"
+              ? "text-slate-800 border-b-2 md:border-b-2 md:border-slate-800 w-fit flex flex-col md:flex-row items-center "
+              : "hover:text-slate-800 flex flex-col md:flex-row items-center"
           }
         >
-          <HomeIcon className="inline-block w-5 h-5 mr-1 " /> Home
+          <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
+            <HomeIcon className="w-5 h-5 md:mr-3" />
+            <p>Home</p>
+          </div>
         </NavLink>
         <NavLink
           to="/about"
@@ -44,7 +53,10 @@ const Navbar = () => {
               : "hover:text-slate-800"
           }
         >
-          <UserIcon className="inline-block w-5 h-5 mr-1" /> About
+          <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
+            <UserIcon className="inline-block w-5 h-5 mr-3" />
+            <p>About</p>
+          </div>
         </NavLink>
         <NavLink
           to="/competences"
@@ -54,7 +66,10 @@ const Navbar = () => {
               : "hover:text-slate-800"
           }
         >
-          <AcademicCapIcon className="inline-block w-5 h-5 mr-1" /> Competences
+          <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
+            <AcademicCapIcon className="inline-block w-5 h-5 mr-3" />{" "}
+            <p>Competences</p>
+          </div>
         </NavLink>
         <NavLink
           to="/contact"
@@ -64,31 +79,34 @@ const Navbar = () => {
               : "hover:text-slate-800"
           }
         >
-          <EnvelopeIcon className="inline-block w-5 h-5 mr-1" /> Contact
+          <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
+            <EnvelopeIcon className="inline-block w-5 h-5 mr-3" />
+            <p>Contact</p>
+          </div>
         </NavLink>
       </nav>
-      <div className="flex justify-center space-x-4">
+      <div className="justify-center hidden space-x-4 mb-10 sm:flex md:mb-5">
         <Link
           to="https://github.com/yvankraft"
           className="mt-10 text-center text-slate-400 hover:text-slate-800 text-sm"
         >
-          <FaGithub className="inline-block sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-12 lg:h-12 mr-2" />
+          <FaGithub className="inline-block w-12 h-12 mr-2" />
         </Link>
         <Link
           to="https://www.linkedin.com/in/yvan-ngone-271b2b30b/"
           className="mt-10 text-center text-slate-400 hover:text-slate-800 text-sm"
         >
-          <FaLinkedin className="inline-block sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-12 lg:h-12 mr-2" />
+          <FaLinkedin className="inline-block w-12 h-12 mr-2" />
         </Link>
         <Link
           to="https://x.com/wildisyvan53?s=11"
           className="mt-10 text-center text-slate-400 hover:text-slate-800 text-sm"
         >
-          <FaTwitter className="inline-block sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-12 lg:h-12 mr-2" />
+          <FaTwitter className="inline-block w-12 h-12 mr-2" />
         </Link>
       </div>
       <div className="mt-auto">
-        <p className="text-center text-slate-400 text-sm">
+        <p className="text-center text-slate-400 hidden md:block text-sm">
           &copy; 2025 Yvan Wildis Ngone Tchinda
         </p>
       </div>
