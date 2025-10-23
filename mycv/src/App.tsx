@@ -8,8 +8,8 @@ import Competences from "./pages/Competences";
 
 const App = () => {
   return(
-    <div className="flex h-screen bg-slate-100">
-      <div className="flex-1">
+    <div className="min-h-screen bg-slate-100  ">
+      <div className=" px-4  sm:px-6 bg-slate-100 lg:px-8">
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />

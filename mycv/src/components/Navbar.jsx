@@ -9,13 +9,17 @@ import {
 } from "@heroicons/react/24/outline";
 
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   return (
-    <div
+    <motion.div
+      initial={{ y: -200, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
       className="
-  fixed bottom-0 left-0 right-0 h-20 z-10 flex flex-row justify-around items-center
-  md:top-0 md:left-0 md:right-auto  md:h-[95%] md:w-100 md:flex-col md:justify-evently
+ fixed bottom-0 left-0 right-0 h-20 z-10 flex flex-row justify-around items-center md:absolute
+  md:top-0 md:left-0 md:right-auto  md:h-[95%] md:flex-col md:justify-evently md:w-[95%]
   bg-slate-50 p-2 md:p-10 shadow-2xl rounded-3xl m-5 text-lg md:text-xl lg:text-2xl font-bold font-stretch-semi-condensed 
 "
     >
@@ -68,7 +72,7 @@ const Navbar = () => {
         >
           <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
             <AcademicCapIcon className="inline-block w-5 h-5 mr-3" />{" "}
-            <p>Competences</p>
+            <p>Example</p>
           </div>
         </NavLink>
         <NavLink
@@ -110,7 +114,7 @@ const Navbar = () => {
           &copy; 2025 Yvan Wildis Ngone Tchinda
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
