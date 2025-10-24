@@ -23,7 +23,9 @@ const Competences = () => {
             technologies={[
               "Node.js",
               "MongoDB",
-              "Express, React, Tailwind CSS",
+              "Express",
+              "React",
+              "Tailwind CSS",
             ]}
             link="https://github.com/yvankraft"
           />
