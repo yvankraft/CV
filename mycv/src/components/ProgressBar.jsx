@@ -20,7 +20,7 @@ const ProgressBar = ({
   }, [percentage, animationDelay]);
 
   return (
-    <div className="space-y-2">
+    <div className=" mb-2">
       <div className="flex justify-between">
         <span className={`text-sm font-medium ${textClass}`}>{skill}</span>
         <span className="text-sm text-gray-500">{animatedWidth}%</span>

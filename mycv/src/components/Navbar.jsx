@@ -1,13 +1,8 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import profileImage from "../assets/IMG_0458.jpeg";
-import {
-  HomeIcon,
-  UserIcon,
-  AcademicCapIcon,
-  EnvelopeIcon,
-} from "@heroicons/react/24/outline";
-
+import { HomeIcon, UserIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { FaCode } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -71,8 +66,7 @@ const Navbar = () => {
           }
         >
           <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
-            <AcademicCapIcon className="inline-block w-5 h-5 mr-3" />{" "}
-            <p>Example</p>
+            <FaCode className="inline-block w-5 h-5 mr-3" /> <p>Project</p>
           </div>
         </NavLink>
         <NavLink

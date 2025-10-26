@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import ProjectExample from "../components/ProjectExempel.jsx";
 import { motion } from "framer-motion";
+import { li } from "framer-motion/client";
 
 const Competences = () => {
   const projects = [
@@ -9,31 +10,36 @@ const Competences = () => {
       id: 1,
       title: "CV React",
       description: "A modern resume developed with React and Tailwind CSS",
-      category: "React, Tailwind CSS, TypeScript,",
+      category: "React, Tailwind CSS, TypeScript",
+      link: "https://github.com/yvankraft/CV",
     },
     {
       id: 2,
       title: "Chat App",
       description: "Full application with authentication and database",
-      category: "React, node.js, Tailwind CSS, mongodb, Express",
+      category: "React, Node.js, Tailwind CSS, MongoDB, Express",
+      link: "https://github.com/yvankraft/chat-app",
     },
     {
       id: 3,
       title: "Drawing App",
       description: "Drawing application with tools and features",
       category: "React Native, React, canvas",
+      link: "https://github.com/yvankraft/draw-App",
     },
     {
       id: 4,
       title: "Portefolio.com",
       description: "Personal website to showcase my projects and skills",
       category: "Html/CSS, JavaScript",
+      link: "https://github.com/yvankraft/javascript",
     },
     {
       id: 5,
-      title: "jeux de gestion",
-      description: "jeux de gestion",
-      category: "React/Tailwind, node.js, TypeScript",
+      title: "Gestion Game",
+      description: "investment portfolio management simulation games",
+      category: "React Native, Tailwind CSS, node.js, TypeScript, MongoDB",
+      link: "https://github.com/yvankraft/jeux-de-gestion-de-porte-feuille-rich-man--",
     },
   ];
 
@@ -101,7 +107,12 @@ const Competences = () => {
       </div>
       <div className="col-span-4 p-4 h-[100vh] overflow-y-auto">
         {/* Filtrage des projets */}
-        <div className="navbar bg-white top-0 left-0 right-0 h-auto p-4 mb-2 mt-1 rounded-2xl flex justify-evenly items-center shadow-lg">
+        <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="navbar bg-white top-0 left-0 right-0 h-auto p-4 mb-2 mt-1 rounded-2xl flex justify-evenly items-center shadow-lg"
+        >
           <button
             onClick={allProjects}
             className={activeFilter === "Tous" ? "active" : ""}
@@ -163,20 +174,25 @@ const Competences = () => {
             <input type="radio" name="radio-1" className="radio" />
             <span className="ml-2">TypeScript</span>
           </button>
-        </div>
+        </motion.div>
         {/* Grille responsive : 1 colonne sur mobile, 2 sur tablet, 3 sur desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial={{ x: 200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {filteredProjects.map((project) => (
             <ProjectExample
               key={project.id}
               title={project.title}
               description={project.description}
               technologies={project.category.split(", ")}
-              link="https://github.com/yvankraft"
+              link={project.link}
               className={project.title.replace(/\s+/g, "")}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import ProgressBar from "../components/ProgressBar.jsx";
 import { motion } from "framer-motion";
+import { FaBasketballBall, FaCode, FaGamepad } from "react-icons/fa";
 
 const About = () => {
   return (
@@ -15,7 +16,7 @@ const About = () => {
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="bg-slate-100 p-6 rounded-xl shadow-xl col-span-4 "
+            className="bg-slate-100 p-6 rounded-xl shadow-xl col-span-4 border border-slate-200"
           >
             <h1>Skills</h1>
             <div className="grid grid-cols-4">
@@ -127,9 +128,44 @@ const About = () => {
               me and help me grow as a developer.
             </p>
           </div>
-          <div className="h-[100%] flex gap-4">
-            <div className="h-[100%] w-[100%] bg-slate-200 text-white rounded-2xl"></div>
-            <div className="h-[100%] w-[100%] bg-slate-400 text-white rounded-2xl"></div>
+          <div className="h-[100%] flex gap-4   ">
+            <div className="h-[100%] w-[100%] bg-slate-200 mb-4 p-6 rounded-2xl">
+              <h1 className="font-bold">Language</h1>
+
+              <ProgressBar
+                skill="French"
+                percentage={100}
+                colorClass="bg-slate-400"
+                bgClass="bg-slate-200"
+              />
+              <ProgressBar
+                skill="English"
+                percentage={45}
+                colorClass="bg-slate-400"
+                bgClass="bg-slate-200"
+              />
+              <ProgressBar
+                skill="German"
+                percentage={70}
+                colorClass="bg-slate-400"
+                bgClass="bg-slate-200"
+              />
+            </div>
+            <div className="h-[100%] w-[100%] bg-slate-400  p-6 rounded-2xl flex flex-col justify-between text-white">
+              <h1 className="font-bold">Hobbies</h1>
+              <div className="flex justify-center items-center gap-3">
+                <FaBasketballBall className="text-xl" />
+                <p>Basketball</p>
+              </div>
+              <div className="flex justify-center items-center gap-3">
+                <FaCode className="text-xl" />
+                <p>Coding</p>
+              </div>
+              <div className="flex justify-center items-center gap-3">
+                <FaGamepad className="text-xl" />
+                <p>Video games</p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

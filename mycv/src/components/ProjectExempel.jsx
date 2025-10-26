@@ -1,7 +1,6 @@
 import { div } from "framer-motion/client";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const ProjectExample = ({ title, description, technologies, image, link }) => {
   return (
@@ -26,13 +25,18 @@ const ProjectExample = ({ title, description, technologies, image, link }) => {
             ))}
           </div>
 
-          <div className="flex ">
-            <Link
-              to={link}
-              className="mt-2 text-center  hover:underline text-sm text-blue-600 "
-            >
-              {link}
-            </Link>
+          <div className="flex justify-center items-center gap-2">
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 mt-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <FaGithub className="text-lg" />
+                <span className="text-sm">Voir le code</span>
+              </a>
+            )}
           </div>
         </div>
       </div>
