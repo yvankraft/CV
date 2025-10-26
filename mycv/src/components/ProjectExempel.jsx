@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ProjectExample = ({ title, description, technologies, image, link }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
       <div>
         <div
           className="p-6 bg-center bg-base-100 bg-cover h-40 m-3 rounded-lg items-center flex flex-col text-center justify-center"

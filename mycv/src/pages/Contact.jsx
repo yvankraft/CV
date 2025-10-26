@@ -19,7 +19,7 @@ const Contact = () => {
         transition={{ duration: 0.8 }}
         className=" md:p-4 md:flex md:flex-col md:items-center md:justify-center md:h-[95vh] md:text-center sm:space-y-6  col-span-4  md:w-[95%] w-full h-[100vh] flex flex-col justify-center text-center items-center "
       >
-        <div className="bg-slate-300 rounded-xl shadow-xl h-auto w-full max-w-2xl text-2xl p-11 ">
+        <div className="bg-slate-200 rounded-xl shadow-xl h-auto w-full max-w-2xl text-2xl p-11 ">
           <p>
             Thank you for taking the time to reach this point. If you have any
             questions, please feel free to contact me. I would be very happy to
@@ -50,6 +50,16 @@ const Contact = () => {
             >
               <SiGmail className="inline-block w-12 h-12 mr-2 " />
             </Link>
+          </div>
+          <div>
+            <div
+              className="mt-4 bg bg-cover bg-center bg-no-repeat h-12 w-auto flex justify-center items-center mx-auto rounded-full p-2"
+              style={{ backgroundImage: `url('../assets/email-bg.jpg')` }}
+            >
+              <span className="text-gray-700 hover:text-black text-sm">
+                yvanngone53@gmail.com
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>
