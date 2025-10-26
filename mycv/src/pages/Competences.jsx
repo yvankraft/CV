@@ -9,13 +9,13 @@ const Competences = () => {
       id: 1,
       title: "CV React",
       description: "A modern resume developed with React and Tailwind CSS",
-      category: "React, Tailwind CSS, JavaScript",
+      category: "React, Tailwind CSS, TypeScript,",
     },
     {
       id: 2,
       title: "Chat App",
       description: "Full application with authentication and database",
-      category: "React, node.js, Tailwind CSS",
+      category: "React, node.js, Tailwind CSS, mongodb, Express",
     },
     {
       id: 3,
@@ -86,6 +86,13 @@ const Competences = () => {
     setFilteredProjects(filtered);
     setActiveFilter("JavaScript");
   };
+  const filterTypeScript = () => {
+    const filtered = projects.filter((project) =>
+      project.category.includes("TypeScript")
+    );
+    setFilteredProjects(filtered);
+    setActiveFilter("TypeScript");
+  };
 
   return (
     <div className="max-w-[1800px] mx-auto grid grid-cols-6 ">
@@ -148,6 +155,13 @@ const Competences = () => {
           >
             <input type="radio" name="radio-1" className="radio" />
             <span className="ml-2">JavaScript</span>
+          </button>
+          <button
+            onClick={filterTypeScript}
+            className={activeFilter === "TypeScript" ? "active" : ""}
+          >
+            <input type="radio" name="radio-1" className="radio" />
+            <span className="ml-2">TypeScript</span>
           </button>
         </div>
         {/* Grille responsive : 1 colonne sur mobile, 2 sur tablet, 3 sur desktop */}

@@ -1,13 +1,28 @@
 import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
-import { AiOutlineMail } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { SiX } from "react-icons/si";
 
 const Contact = () => {
+  const [copiedStates, setCopiedStates] = useState({
+    github: false,
+    linkedin: false,
+    twitter: false,
+    email: false,
+  });
+
+  const copyToClipboard = (text, platform) => {
+    navigator.clipboard.writeText(text);
+    setCopiedStates((prev) => ({ ...prev, [platform]: true }));
+    setTimeout(() => {
+      setCopiedStates((prev) => ({ ...prev, [platform]: false }));
+    }, 2000);
+  };
   return (
     <div className="max-w-[1800px] mx-auto grid grid-cols-6 ">
       <div className=" relative md:col-span-2  flex justify-center items-center ">
@@ -25,40 +40,130 @@ const Contact = () => {
             questions, please feel free to contact me. I would be very happy to
             receive your feedback through the links below.
           </p>
-          <div className="justify-center hidden space-x-4 mb-10 sm:flex md:mb-5">
-            <Link
-              to="https://github.com/yvankraft"
-              className="mt-10 text-center text-gray-700 hover:text-black text-sm"
-            >
-              <FaGithub className="inline-block w-12 h-12 mr-2" />
-            </Link>
-            <Link
-              to="https://www.linkedin.com/in/yvan-ngone-271b2b30b/"
-              className="mt-10 text-center text-gray-700 hover:text-black text-sm"
-            >
-              <FaLinkedin className="inline-block w-12 h-12 mr-2" />
-            </Link>
-            <Link
-              to="https://x.com/wildisyvan53?s=11"
-              className="mt-10 text-center text-gray-700 hover:text-black text-sm"
-            >
-              <FaTwitter className="inline-block w-12 h-12 mr-2" />
-            </Link>
-            <Link
-              to="mailto:yvanngone53@gmail.com"
-              className="mt-10 text-center text-gray-700 hover:text-black text-sm"
-            >
-              <SiGmail className="inline-block w-12 h-12 mr-2 " />
-            </Link>
-          </div>
-          <div>
-            <div
-              className="mt-4 bg bg-cover bg-center bg-no-repeat h-12 w-auto flex justify-center items-center mx-auto rounded-full p-2"
-              style={{ backgroundImage: `url('../assets/email-bg.jpg')` }}
-            >
-              <span className="text-gray-700 hover:text-black text-sm">
+          <div className="mt-8 space-y-6">
+            <div className="flex justify-evenly items-center gap-8 flex-wrap">
+              {/* GitHub */}
+              <div
+                onClick={() =>
+                  copyToClipboard("https://github.com/yvankraft", "github")
+                }
+                className="text-center text-gray-700 hover:text-black text-sm hover:underline cursor-pointer relative p-4"
+              >
+                <FaGithub className="inline-block w-8 h-8 mr-2" />
+                <span className="text-gray-700 hover:text-blue-600 text-sm">
+                  GitHub
+                </span>
+
+                {/* Pop-up GitHub */}
+                {copiedStates.github && (
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full mb-2 bg-white text-black px-4 py-2 rounded-lg shadow-lg z-20"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">✓</span>
+                      <span className="font-medium"> Copied!</span>
+                    </div>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                  </motion.div>
+                )}
+              </div>
+
+              {/* LinkedIn */}
+              <div
+                onClick={() =>
+                  copyToClipboard(
+                    "https://www.linkedin.com/in/yvan-ngone-271b2b30b/",
+                    "linkedin"
+                  )
+                }
+                className=" text-center text-gray-700 hover:text-black text-sm hover:underline cursor-pointer relative"
+              >
+                <FaLinkedin className="inline-block w-8 h-8 mr-2" />
+                <span className="text-gray-700 hover:text-blue-600 text-sm">
+                  LinkedIn
+                </span>
+
+                {/* Pop-up LinkedIn */}
+                {copiedStates.linkedin && (
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full mb-2 bg-white text-black px-4 py-2 rounded-lg shadow-lg z-20"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg text-black">✓</span>
+                      <span className="font-medium text-black"> Copied!</span>
+                    </div>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                  </motion.div>
+                )}
+              </div>
+
+              {/* X */}
+              <div
+                onClick={() =>
+                  copyToClipboard("https://x.com/wildisyvan53?s=11", "x")
+                }
+                className=" text-center text-gray-700 hover:text-black text-sm hover:underline cursor-pointer relative"
+              >
+                <SiX className="inline-block w-8 h-8 mr-2" />
+                <span className="text-gray-700 hover:text-blue-600 text-sm">
+                  https://x.com/wildisyvan53?s=11
+                </span>
+
+                {/* Pop-up X */}
+                {copiedStates.x && (
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full mb-2 bg-white text-white px-4 py-2 rounded-lg shadow-lg z-20"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg text-black">✓</span>
+                      <span className="font-medium text-black">Copied!</span>
+                    </div>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                  </motion.div>
+                )}
+              </div>
+            </div>
+
+            {/* Section Email */}
+            <div className=" text-center text-gray-700 hover:text-black text-sm relative">
+              <SiGmail className="inline-block w-8 h-8 mr-2" />
+              <span
+                onClick={() =>
+                  copyToClipboard("yvanngone53@gmail.com", "email")
+                }
+                className="text-gray-700 hover:text-blue-600 text-sm hover:underline cursor-pointer"
+              >
                 yvanngone53@gmail.com
               </span>
+
+              {/* Pop-up Email */}
+              {copiedStates.email && (
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full mb-2 bg-white text-white px-4 py-2 rounded-lg shadow-lg z-20"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg text-black">✓</span>
+                    <span className="font-medium text-black">Copied!</span>
+                  </div>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                </motion.div>
+              )}
             </div>
           </div>
         </div>
