@@ -1,8 +1,17 @@
 import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import { motion } from "framer-motion";
+import cv from "../assets/Ohne Titel.pdf";
 
 const Home = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = cv; // Chemin vers le fichier importé
+    link.download = "Ohne Titel.pdf"; // Nom du fichier téléchargé
+    document.body.appendChild(link); // Ajout temporaire au DOM
+    link.click(); // Simule un clic
+    document.body.removeChild(link); // Supprime le lien après le clic
+  };
   return (
     <div className="max-w-[1800px] mx-auto grid grid-cols-6 ">
       <div className=" relative md:col-span-2  flex justify-center items-center ">
@@ -33,6 +42,7 @@ const Home = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.8, delay: 0.3, ease: "easeOut" }}
           className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-300 shadow-xl"
+          onClick={handleDownload}
         >
           Download CV
         </motion.button>
