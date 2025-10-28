@@ -34,7 +34,7 @@ const ProjectExample = ({ title, description, technologies, image, link }) => {
                 className="flex items-center gap-2 mt-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
                 <FaGithub className="text-lg" />
-                <span className="text-sm">Voir le code</span>
+                <span className="text-sm">see the code</span>
               </a>
             )}
           </div>
