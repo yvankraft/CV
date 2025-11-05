@@ -3,24 +3,25 @@ import Navbar from "../components/Navbar.jsx";
 import ProgressBar from "../components/ProgressBar.jsx";
 import { motion } from "framer-motion";
 import { FaBasketballBall, FaCode, FaGamepad } from "react-icons/fa";
+import { div } from "framer-motion/client";
 
 const About = () => {
   return (
-    <div className="max-w-[1800px] mx-auto grid grid-cols-7 ">
+    <div className="max-w-[1800px] mx-auto sm:grid sm:grid-cols-7 ">
       <div className=" relative md:col-span-2  flex justify-center items-center ">
         <Navbar />
       </div>
-      <div className="col-span-5 w-full h-[100vh] flex flex-col gap-2 justify-center text-center items-center md:h-[95vh] p-4">
-        <div className="grid grid-cols-6 h-[100%] w-full gap-2 ">
+      <div className="flex flex-col mt-2 sm:mt-0 md:col-span-5 w-min md:w-full h-auto md:flex md:flex-col gap-2 justify-around  text-center items-center  sm:p-2 overflow-auto rounded-lg pb-20 sm:pb-0">
+        <div className="flex flex-col sm:grid sm:grid-cols-6 h-[100%] w-full gap-2 ">
           <motion.div
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="bg-slate-100 p-6 rounded-xl shadow-xl col-span-4 border border-slate-200"
+            className="bg-slate-100 h-auto p-6 rounded-xl shadow-xl col-span-4 border border-slate-200"
           >
             <h1>Skills</h1>
-            <div className="grid grid-cols-4">
-              <div className="col-span-2 mb-4 p-4">
+            <div className="flex flex-col sm:grid grid-cols-4 h-auto">
+              <div className="sm:col-span-2 mb-4 p-4 h-auto">
                 <h1>Frontend </h1>
                 <ProgressBar
                   skill="HTML/CSS"
@@ -93,7 +94,7 @@ const About = () => {
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className=" p-6 rounded-xl shadow-xl col-span-2 bg-slate-200"
+            className=" p-6 rounded-xl shadow-xl col-span-2 bg-slate-200 h-auto border border-slate-300"
           >
             <h2>objective</h2>
             <p>
@@ -111,9 +112,9 @@ const About = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.8, delay: 0.3, ease: "easeOut" }}
-          className="bg-slate-100 p-6 rounded-2xl shadow-2xl h-[100%] flex flex-col"
+          className="bg-slate-100 h-auto p-6 rounded-2xl shadow-lg flex flex-col border border-slate-300 "
         >
-          <div className="h-[100%] w-[100%]">
+          <div className="h-auto w-auto mb-2">
             <h1>About me</h1>
             <p>
               About Me My name is Yvan Wildis Ngone Tchinda, and I am currently

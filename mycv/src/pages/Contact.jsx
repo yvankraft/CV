@@ -32,16 +32,16 @@ const Contact = () => {
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className=" md:p-4 md:flex md:flex-col md:items-center md:justify-center md:h-[95vh] md:text-center sm:space-y-6  col-span-4  md:w-[95%] w-full h-[100vh] flex flex-col justify-center text-center items-center "
+        className=" sm:p-40 md:items-center md:justify-center md:h-[95vh] md:text-center  col-span-4  md:w-[95%] w-full h-[100vh] sm:grid sm:col-span-4 flex flex-col justify-center text-center items-center "
       >
-        <div className="bg-slate-200 rounded-xl shadow-xl h-auto w-full max-w-2xl text-2xl p-11 ">
+        <div className="bg-slate-200 rounded-xl shadow-xl h-auto w-full max-w-2xl sm:text-2xl p-4 sm:p-20 ">
           <p>
             Thank you for taking the time to reach this point. If you have any
             questions, please feel free to contact me. I would be very happy to
             receive your feedback through the links below.
           </p>
-          <div className="mt-8 space-y-6">
-            <div className="flex justify-evenly items-center gap-8 flex-wrap">
+          <div className="mt-8 sm:space-y-6">
+            <div className="flex justify-evenly items-center sm:gap-8 flex-wrap">
               {/* GitHub */}
               <div
                 onClick={() =>

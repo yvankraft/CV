@@ -12,12 +12,12 @@ const Navbar = () => {
       initial={{ y: -200, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed bottom-0 left-0 right-0 z-20 flex flex-row justify-around items-center rounded-2xl m-2
+      className="fixed bottom-0 left-0 right-0 z-20 flex flex-row justify-around items-center rounded-2xl m-2 h-[65px]
 sm:bottom-4 sm:right-4 sm:rounded-2xl
-md:absolute md:top-0 md:left-0 md:right-auto md:bottom-auto md:h-[95%] md:flex-col md:justify-between md:w-80
-bg-slate-50/95 shadow-2xl rounded-t-3xl md:rounded-3xl md:m-2"
+md:absolute md:top-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:flex-col md:justify-between sm:w-auto lg:w-[400px] md:ustify-evenly
+bg-slate-50/95 shadow-2xl rounded-t-3xl md:rounded-3xl"
     >
-      <div className="flex items-center mb-4 md:mb-1 h-full justify-evenly">
+      <div className="flex items-center mb-4 md:mb-1 h-full justify-center">
         <div className="h-40 w-40 sm:w-40 sm:h-40 md:h-48 md:w-48 lg:w-60 lg:h-60 rounded-full overflow-hidden border-4  hidden md:flex border-slate-200 shadow-lg">
           <img
             src={profileImage}
@@ -29,7 +29,7 @@ bg-slate-50/95 shadow-2xl rounded-t-3xl md:rounded-3xl md:m-2"
       <h1 className="text-center text-slate-500 hidden md:block">
         Yvan Wildis Ngone Tchinda
       </h1>
-      <nav className=" text-slate-500 gap-8 mt-8 mb-10 flex flex-row md:flex-col md:mb-0  ">
+      <nav className=" text-slate-500 gap-8 mt-8 mb-10 justify-around items-center flex flex-row md:flex-col md:mb-0  ">
         <NavLink
           to="/home"
           className={({ isActive }) =>
@@ -38,9 +38,9 @@ bg-slate-50/95 shadow-2xl rounded-t-3xl md:rounded-3xl md:m-2"
               : "hover:text-slate-800 flex flex-col md:flex-row items-center"
           }
         >
-          <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
-            <HomeIcon className="w-5 h-5 md:mr-3" />
-            <p>Home</p>
+          <div className="flex flex-col text-[12px] md:flex-row md:text-2xl justify-center items-center">
+            <HomeIcon className="w-5 h-5 md:mr-3 justify-center items-center" />
+            <p className="justify-center items-center">Home</p>
           </div>
         </NavLink>
         <NavLink
@@ -51,7 +51,7 @@ bg-slate-50/95 shadow-2xl rounded-t-3xl md:rounded-3xl md:m-2"
               : "hover:text-slate-800"
           }
         >
-          <div className="flex flex-col text-[12px] md:flex-row md:text-2xl items-center">
+          <div className="flex justify-center items-center flex-col text-[12px] md:flex-row md:text-2xl">
             <UserIcon className="inline-block w-5 h-5 mr-3" />
             <p>About</p>
           </div>

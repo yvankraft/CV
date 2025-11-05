@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { li } from "framer-motion/client";
 
 const Competences = () => {
+  const [filterOpen, setFilterOpen] = React.useState(false);
   const projects = [
     {
       id: 1,
@@ -101,79 +102,168 @@ const Competences = () => {
   };
 
   return (
-    <div className="max-w-[1800px] mx-auto grid grid-cols-6 ">
+    <div className="max-w-[1800px] mx-auto sm:grid sm:grid-cols-7 ">
       <div className=" relative md:col-span-2  flex justify-center items-center ">
         <Navbar />
       </div>
-      <div className="col-span-4 p-4 h-[100vh] overflow-y-auto">
+      <div className="sm:col-span-5 p-4 pb-20 sm:pb-0 sm:h-full overflow-auto">
         {/* Filtrage des projets */}
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="navbar bg-white top-0 left-0 right-0 h-auto p-4 mb-2 mt-1 rounded-2xl flex justify-evenly items-center shadow-lg"
+          className="navbar bg-white top-0 left-0 right-0 h-auto p-4 mb-2 rounded-2xl flex items-center shadow-lg"
         >
-          <button
-            onClick={allProjects}
-            className={activeFilter === "Tous" ? "active" : ""}
-          >
-            <input
-              type="radio"
-              name="radio-1"
-              className="radio"
-              defaultChecked
-            />
-            <span className="ml-2">all</span>
-          </button>
-          <button
-            onClick={filterReact}
-            className={activeFilter === "React" ? "active" : ""}
-          >
-            <input type="radio" name="radio-1" className="radio" />
-            <span className="ml-2">React</span>
-          </button>
-          <button
-            onClick={filterTailwind}
-            className={activeFilter === "Tailwind" ? "active" : ""}
-          >
-            <input type="radio" name="radio-1" className="radio" />
-            <span className="ml-2">Tailwind</span>
-          </button>
-          <button
-            onClick={filterHtmlCss}
-            className={activeFilter === "Html/CSS" ? "active" : ""}
-          >
-            <input type="radio" name="radio-1" className="radio" />
-            <span className="ml-2">html/css</span>
-          </button>
-          <button
-            onClick={filterReactNative}
-            className={activeFilter === "React Native" ? "active" : ""}
-          >
-            <input type="radio" name="radio-1" className="radio" />
-            <span className="ml-2">React Native</span>
-          </button>
-          <button
-            onClick={filterNodeJs}
-            className={activeFilter === "Node.js" ? "active" : ""}
-          >
-            <input type="radio" name="radio-1" className="radio" />
-            <span className="ml-2">Node.js</span>
-          </button>
-          <button
-            onClick={filterJavaScript}
-            className={activeFilter === "JavaScript" ? "active" : ""}
-          >
-            <input type="radio" name="radio-1" className="radio" />
-            <span className="ml-2">JavaScript</span>
-          </button>
-          <button
-            onClick={filterTypeScript}
-            className={activeFilter === "TypeScript" ? "active" : ""}
-          >
-            <input type="radio" name="radio-1" className="radio" />
-            <span className="ml-2">TypeScript</span>
-          </button>
+          {/* Mobile: bouton + titre */}
+
+          <div className="flex items-center sm:hidden w-full">
+            <button
+              className="btn btn-circle btn-lg mr-2"
+              onClick={() => setFilterOpen((open) => !open)}
+              aria-label="Show filters"
+            >
+              <svg
+                aria-label="New poll"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="size-6"
+              >
+                <path d="M3 4.75a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6.25 3a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7ZM6.25 7.25a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7ZM6.25 11.5a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7ZM4 12.25a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM3 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" />
+              </svg>
+            </button>{" "}
+            <span className="font-semibold text-lg">Filter</span>
+          </div>
+          {/* Mobile: menu déroulant */}
+          {filterOpen && (
+            <div className="flex flex-wrap gap-2 mt-4 sm:hidden w-full">
+              <button
+                onClick={allProjects}
+                className={activeFilter === "Tous" ? "active" : ""}
+              >
+                <input
+                  type="radio"
+                  name="radio-1"
+                  className="radio"
+                  defaultChecked
+                />
+                <span className="ml-2">all</span>
+              </button>
+              <button
+                onClick={filterReact}
+                className={activeFilter === "React" ? "active" : ""}
+              >
+                <input type="radio" name="radio-1" className="radio" />
+                <span className="ml-2">React</span>
+              </button>
+              <button
+                onClick={filterTailwind}
+                className={activeFilter === "Tailwind" ? "active" : ""}
+              >
+                <input type="radio" name="radio-1" className="radio" />
+                <span className="ml-2">Tailwind</span>
+              </button>
+              <button
+                onClick={filterHtmlCss}
+                className={activeFilter === "Html/CSS" ? "active" : ""}
+              >
+                <input type="radio" name="radio-1" className="radio" />
+                <span className="ml-2">html/css</span>
+              </button>
+              <button
+                onClick={filterReactNative}
+                className={activeFilter === "React Native" ? "active" : ""}
+              >
+                <input type="radio" name="radio-1" className="radio" />
+                <span className="ml-2">React Native</span>
+              </button>
+              <button
+                onClick={filterNodeJs}
+                className={activeFilter === "Node.js" ? "active" : ""}
+              >
+                <input type="radio" name="radio-1" className="radio" />
+                <span className="ml-2">Node.js</span>
+              </button>
+              <button
+                onClick={filterJavaScript}
+                className={activeFilter === "JavaScript" ? "active" : ""}
+              >
+                <input type="radio" name="radio-1" className="radio" />
+                <span className="ml-2">JavaScript</span>
+              </button>
+              <button
+                onClick={filterTypeScript}
+                className={activeFilter === "TypeScript" ? "active" : ""}
+              >
+                <input type="radio" name="radio-1" className="radio" />
+                <span className="ml-2">TypeScript</span>
+              </button>
+            </div>
+          )}
+          {/* Desktop/tablette: filtres toujours visibles */}
+          <div className="hidden sm:flex flex-wrap gap-2 w-full justify-evenly items-center">
+            <button
+              onClick={allProjects}
+              className={activeFilter === "Tous" ? "active" : ""}
+            >
+              <input
+                type="radio"
+                name="radio-1"
+                className="radio"
+                defaultChecked
+              />
+              <span className="ml-2">all</span>
+            </button>
+            <button
+              onClick={filterReact}
+              className={activeFilter === "React" ? "active" : ""}
+            >
+              <input type="radio" name="radio-1" className="radio" />
+              <span className="ml-2">React</span>
+            </button>
+            <button
+              onClick={filterTailwind}
+              className={activeFilter === "Tailwind" ? "active" : ""}
+            >
+              <input type="radio" name="radio-1" className="radio" />
+              <span className="ml-2">Tailwind</span>
+            </button>
+            <button
+              onClick={filterHtmlCss}
+              className={activeFilter === "Html/CSS" ? "active" : ""}
+            >
+              <input type="radio" name="radio-1" className="radio" />
+              <span className="ml-2">html/css</span>
+            </button>
+            <button
+              onClick={filterReactNative}
+              className={activeFilter === "React Native" ? "active" : ""}
+            >
+              <input type="radio" name="radio-1" className="radio" />
+              <span className="ml-2">React Native</span>
+            </button>
+            <button
+              onClick={filterNodeJs}
+              className={activeFilter === "Node.js" ? "active" : ""}
+            >
+              <input type="radio" name="radio-1" className="radio" />
+              <span className="ml-2">Node.js</span>
+            </button>
+            <button
+              onClick={filterJavaScript}
+              className={activeFilter === "JavaScript" ? "active" : ""}
+            >
+              <input type="radio" name="radio-1" className="radio" />
+              <span className="ml-2">JavaScript</span>
+            </button>
+            <button
+              onClick={filterTypeScript}
+              className={activeFilter === "TypeScript" ? "active" : ""}
+            >
+              <input type="radio" name="radio-1" className="radio" />
+              <span className="ml-2">TypeScript</span>
+            </button>
+          </div>
         </motion.div>
         {/* Grille responsive : 1 colonne sur mobile, 2 sur tablet, 3 sur desktop */}
         <motion.div
