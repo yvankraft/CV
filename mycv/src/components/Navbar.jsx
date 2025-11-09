@@ -12,7 +12,7 @@ const Navbar = () => {
       initial={{ y: -200, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed bottom-0 left-0 right-0 z-20 flex flex-row justify-around items-center rounded-2xl m-2 h-[65px]
+      className="fixed bottom-0 left-0 right-0 z-20 flex flex-row justify-around items-center rounded-2xl m-2 h-[65px] p-2
 sm:bottom-4 sm:right-4 sm:rounded-2xl
 md:absolute md:top-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:flex-col md:justify-between sm:w-auto lg:w-[400px] md:ustify-evenly
 bg-slate-50/95 shadow-2xl rounded-t-3xl md:rounded-3xl"

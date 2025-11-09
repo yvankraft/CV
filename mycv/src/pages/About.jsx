@@ -11,8 +11,8 @@ const About = () => {
       <div className=" relative md:col-span-2  flex justify-center items-center ">
         <Navbar />
       </div>
-      <div className="flex flex-col mt-2 sm:mt-0 md:col-span-5 w-min md:w-full h-auto md:flex md:flex-col gap-2 justify-around  text-center items-center  sm:p-2 overflow-auto rounded-lg pb-20 sm:pb-0">
-        <div className="flex flex-col sm:grid sm:grid-cols-6 h-[100%] w-full gap-2 ">
+      <div className="flex flex-col mt-2 sm:mt-0 md:col-span-5 w-min md:w-full h-[95vh] md:flex md:flex-col gap-2 justify-around  text-center items-center  sm:p-2 overflow-auto rounded-lg pb-20 sm:pb-0">
+        <div className="flex flex-col sm:grid sm:grid-cols-6 h-auto w-full gap-2 ">
           <motion.div
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

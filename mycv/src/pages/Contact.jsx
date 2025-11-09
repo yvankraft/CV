@@ -32,9 +32,9 @@ const Contact = () => {
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className=" sm:p-40 md:items-center md:justify-center md:h-[95vh] md:text-center  col-span-4  md:w-[95%] w-full h-[100vh] sm:grid sm:col-span-4 flex flex-col justify-center text-center items-center "
+        className=" lg:p-40 md:items-center md:justify-center  md:text-center  col-span-4   w-auto h-[95vh] md:grid md:col-span-4 flex flex-col justify-center text-center items-center "
       >
-        <div className="bg-slate-200 rounded-xl shadow-xl h-auto w-full max-w-2xl sm:text-2xl p-4 sm:p-20 ">
+        <div className="bg-slate-200 rounded-xl shadow-xl h-auto w-full max-w-2xl md:text-2xl p-4 sm:p-20 ">
           <p>
             Thank you for taking the time to reach this point. If you have any
             questions, please feel free to contact me. I would be very happy to
