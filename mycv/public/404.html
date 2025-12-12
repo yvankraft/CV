@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0; url=/CV/" />
+    <script>
+      // If served under /CV/, redirect to the root while preserving the path for SPA routers
+      (function() {
+        var origin = location.origin;
+        var base = '/CV/';
+        var path = location.pathname.replace(/^\/CV\//, '');
+        var search = location.search || '';
+        var hash = location.hash || '';
+        // Redirect to index within base, SPA router should take over
+        location.replace(origin + base + search + hash);
+      })();
+    </script>
+  </head>
+  <body>Redirecting…</body>
+</html>
