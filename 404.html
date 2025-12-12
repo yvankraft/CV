@@ -5,26 +5,22 @@
     <title>Single Page Apps for GitHub Pages</title>
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
-      // MIT License
       // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with the new query string and an empty path.
-      // For example, https://user.github.io/repo-name/route/path?query=value
-      // would be redirected to https://user.github.io/repo-name/?/route/path&query=value
-      // It is hosted on gh-pages, so it is served from a subdirectory
-      // and all paths are relative to the subdirectory.
-      var segmentCount = 1; // Set this to the number of segments in your repo name
-      
+      var segmentCount = 1;
+
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
+          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(segmentCount)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
       );
-
     </script>
   </head>
   <body>
